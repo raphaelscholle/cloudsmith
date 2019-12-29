@@ -28,10 +28,10 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
+  args: # these map in order with entrypoint.sh
     - ${{ inputs.command }}
     - ${{ inputs.format }}
-    - ${{ inputs.org }}
+    - ${{ inputs.owner }}
     - ${{ inputs.repo }}
     - ${{ inputs.file }}
     - ${{ inputs.distro }}
