@@ -1,8 +1,14 @@
-#!/bin/sh -l
+#!/bin/bash
 
-who_to_greet=$1
+command=$1
+format=$2
+org=$3
+repo=$4
+file=$5
+distro=$6
+release=$7
 
-echo "Hello $who_to_greet"
-time=$(date)
-echo ::set-output name=time::$time
-echo ::set-output name=os::$OSTYPE
+apt-get -y install python-pip
+pip install cloudsmith-cli
+# requires a CLOUDSMITH_API_KEY env variable to push
+push $action $format $org/$repo/distro/release some-file.deb

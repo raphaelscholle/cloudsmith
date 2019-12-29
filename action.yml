@@ -2,17 +2,37 @@
 name: 'Cloudsmith'
 description: 'Interact with Cloudsmith repositories'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  command:  
+    description: 'The desired action with cloudsmith (push, list, etc)'
     required: true
-    default: 'World'
-outputs:
-  time: # id of output
-    description: 'The time we greeted you'
-  os: 
-    description: 'The operating system that ran your action'
+    default: help
+  format:  
+    description: 'The package format (deb,npm,maven, etc)'
+    required: true
+  owner:  
+    description: 'The organization that owns the repository'
+    required: true
+  repo:  
+    description: 'The repository slug'
+    required: true
+  file:  
+    description: 'The package file to be pushed'
+    required: true
+  distro:  
+    description: 'Debian: The distribution (ubuntu)'
+    required: false
+  release:  
+    description: 'Debian: The named version of the release (xenial)'
+    required: false
+
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.who-to-greet }}
+    - ${{ inputs.command }}
+    - ${{ inputs.format }}
+    - ${{ inputs.org }}
+    - ${{ inputs.repo }}
+    - ${{ inputs.file }}
+    - ${{ inputs.distro }}
+    - ${{ inputs.release }}

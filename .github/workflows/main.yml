@@ -1,4 +1,4 @@
-name: Hello World Action
+name: Cloudsmith Push
 on: 
   push:
     branches:
@@ -6,22 +6,19 @@ on:
     tags:
       - '*'
 jobs:
-  hello_world_job:
+  push_raw:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: Push demo
     steps:
-    - name: Hello world action step
-      id: hello
-      uses: AutoModality/action-hello-world-docker@1.1.0-rc.2
+    - name: Push
+      id: push
+      uses: AutoModality/action-cloudsmith@master
       with:
-        who-to-greet: 'AutoModality'
-    # Use the output from the `hello` step
-    - name: Get the output time
-      run: echo "The time was ${{ steps.hello.outputs.time }}"
-    - name: Get the output os
-      run: echo "The os was ${{ steps.hello.outputs.os }}"
-    - name: Who triggered the action
-      run: echo "The action was triggerd by $GITHUB_ACTOR"
-    - name: The github ref
-      run: echo "The branch or tag ref $GITHUB_REF"
+        command: 'push'
+        format: 'deb'
+        owner: 'automodality'
+        repo: 'trial'
+        distro: 'ubuntu'
+        release: 'xenial'
+        file: 'missing-0.0.0_amd64.deb'
 
