@@ -16,5 +16,5 @@ jobs:
         repo: 'trial'
         distro: 'ubuntu'
         release: 'xenial'
-        file: '/bin/bash' #real file, but wrong format
+        file: 'test/fixture/aruco_3.1.0-1_amd64.deb' #real file, but will fail due to repeat versions
 

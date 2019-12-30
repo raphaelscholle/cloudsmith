@@ -26,31 +26,37 @@ Pass your secret to the Action as seen in the Example usage.
 
 
 
-## Example usage
+## Example of Raw File Push
 
 [
-![Package Workflow Status](https://github.com/AutoModality/action-cloudsmith/workflows/Cloudsmith%20Push/badge.svg)](https://github.com/AutoModality/action-cloudsmith/actions?query=workflow%3A%22Cloudsmith+Push%22)
+![Package Workflow Status](https://github.com/AutoModality/action-cloudsmith/workflows/.github/workflows/push-raw.yml/badge.svg)](https://github.com/AutoModality/action-cloudsmith/actions?query=workflow%3A%22Push+Raw%22)
 
 
+[![Latest Version @ Cloudsmith](https://api-prd.cloudsmith.io/badges/version/automodality/trial/raw/Raw%20Test/latest/x/?render=true&badge_token=gAAAAABeClEKOQZCVujPlMzTyVCuImA8NXf-MnlI5GvpESmdpZBDK59OsgPrQlkyYqpbM60QvPeFLOVyJNuG7KW2AS756ghSurzX_5bSA3p28fbDVb31k6I%3D)](https://cloudsmith.io/~automodality/repos/trial/packages/detail/raw/Raw%2520Test/latest/)
 
+See [push-raw.yml](.github/workflows/push-raw.yml)
 ```
-name: Cloudsmith Push
+name: Push Raw
 on: push
 jobs:
   push:
     runs-on: ubuntu-latest
-    name: Push demo
+    name: Raw File Push Test
     steps:
+    - uses: actions/checkout@v1
     - name: Push
       id: push
-      uses: AutoModality/action-cloudsmith@0.1.0
+      uses: AutoModality/action-cloudsmith@0.2.0
       with:
         api-key: ${{ secrets.CLOUDSMITH_API_KEY }}
         command: 'push'
-        format: 'deb'
+        format: 'raw'
         owner: 'automodality'
         repo: 'trial'
-        distro: 'ubuntu'
-        release: 'xenial'
-        file: 'cool-lib_1.0.1_amd64.deb'
+        file: 'test/fixture/raw-file.txt' 
+        name: 'Raw Test'
+        summary: 'Github Action test of raw pushes'
+        description: 'See https://github.com/AutoModality/action-cloudsmith/actions'
+        version: ${{ github.sha}}
+
 ```
