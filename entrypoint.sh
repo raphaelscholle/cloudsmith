@@ -10,8 +10,8 @@ file=$5
 distro=$6
 release=$7
 
-sudo apt update
-sudo apt install python3-pip
+apt -y update
+apt -y install python3-pip
 pip3 install cloudsmith-cli
 # requires a CLOUDSMITH_API_KEY env variable to push
 cloudsmith push $action $format $org/$repo/distro/release some-file.deb
