@@ -29,7 +29,7 @@ Pass your secret to the Action as seen in the Example usage.
 ## Example of Raw File Push
 
 [
-![Package Workflow Status](https://github.com/AutoModality/action-cloudsmith/workflows/.github/workflows/push-raw.yml/badge.svg)](https://github.com/AutoModality/action-cloudsmith/actions?query=workflow%3A%22Push+Raw%22)
+![Package Workflow Status](https://github.com/AutoModality/action-cloudsmith/workflows/Push%20Raw/badge.svg)](https://github.com/AutoModality/action-cloudsmith/actions?query=workflow%3A%22Push+Raw%22)
 
 
 [![Latest Version @ Cloudsmith](https://api-prd.cloudsmith.io/badges/version/automodality/trial/raw/Raw%20Test/latest/x/?render=true&badge_token=gAAAAABeClEKOQZCVujPlMzTyVCuImA8NXf-MnlI5GvpESmdpZBDK59OsgPrQlkyYqpbM60QvPeFLOVyJNuG7KW2AS756ghSurzX_5bSA3p28fbDVb31k6I%3D)](https://cloudsmith.io/~automodality/repos/trial/packages/detail/raw/Raw%2520Test/latest/)

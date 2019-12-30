@@ -16,7 +16,7 @@ version=${9}
 name=${10}
 summary=${11}
 description=${12}
-
+republish=${13}
 
 # requires a CLOUDSMITH_API_KEY env variable to push
 if [[ -z $api_key || $api_key == $DEFAULT ]]; then
@@ -76,6 +76,9 @@ case "$format" in
     if [[ -n "$description" && "$description" != $DEFAULT ]]; then
         description_arg=" --description=\"$description\""
     fi
+    if [[ "$republish" == "true" || $republish == true ]]; then
+        republish_arg=" --republish"
+    fi
   ;;
   *)
     echo "format $format not yet implemented."
@@ -87,7 +90,7 @@ export CLOUDSMITH_API_KEY=$api_key
 
 pip install cloudsmith-cli
 
-request="cloudsmith push $action $format $owner/$repo$distro_path$version_arg$name_arg$summary_arg$description_arg $file"
+request="cloudsmith push $action $format $owner/$repo$distro_path$version_arg$name_arg$summary_arg$description_arg$republish_arg $file"
 
 echo $request
 

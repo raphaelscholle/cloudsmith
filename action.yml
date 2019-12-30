@@ -46,6 +46,11 @@ inputs:
     description: '--description TEXT: A textual description of this package.'
     required: false
     default: none
+  republish:
+    description: '--republish:  If true, the uploaded package will overwrite
+                                  any others with the same attributes.'
+    required: false
+    default: "false"
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -62,4 +67,5 @@ runs:
     - ${{ inputs.name }}
     - ${{ inputs.summary }}
     - ${{ inputs.description }}
+    - ${{ inputs.republish }}
   

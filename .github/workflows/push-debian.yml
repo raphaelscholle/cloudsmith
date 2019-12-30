@@ -8,7 +8,7 @@ jobs:
     - uses: actions/checkout@v1
     - name: Push
       id: push
-      uses: AutoModality/action-cloudsmith@0.1.0
+      uses: AutoModality/action-cloudsmith@BB-763
       with:
         api-key: ${{ secrets.CLOUDSMITH_API_KEY }}
         command: 'push'
@@ -17,5 +17,6 @@ jobs:
         repo: 'trial'
         distro: 'ubuntu'
         release: 'xenial'
+        republish: 'true'
         file: 'test/fixture/aruco_3.1.0-1_amd64.deb' #real file, but will fail due to repeat versions
 
