@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh -l
 
 command=$1
 format=$2
