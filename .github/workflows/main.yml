@@ -16,5 +16,5 @@ jobs:
         repo: 'trial'
         distro: 'ubuntu'
         release: 'xenial'
-        file: 'action.yml'
+        file: '/bin/bash' #real file, but wrong format
 
