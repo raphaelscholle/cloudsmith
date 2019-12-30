@@ -1,0 +1,23 @@
+name: Push Raw
+on: push
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    name: Raw File Push Test
+    steps:
+    - name: Push
+      id: push
+      uses: AutoModality/action-cloudsmith@BB-763
+      with:
+        api-key: ${{ secrets.CLOUDSMITH_API_KEY }}
+        command: 'push'
+        format: 'raw'
+        owner: 'automodality'
+        repo: 'trial'
+        file: 'test/fixture/raw-file.txt' 
+        name: 'Raw Test'
+        summary: 'Github Action test of raw pushes'
+        description: 'See https://github.com/AutoModality/action-cloudsmith/actions'
+        version: ${{ github.sha}}
+        
+

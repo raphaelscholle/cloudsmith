@@ -8,7 +8,8 @@ to its structure and terminology as possible.
 
 **Implemented**
 * Push
-  * Debian format
+  * [Debian format](https://cloudsmith.io/l/deb-repository/)
+  * [Raw format](https://cloudsmith.io/f/raw_file_repositories/)
 
 **Not Implemented**
 * Everything else
@@ -16,9 +17,21 @@ to its structure and terminology as possible.
 ## Cloudsmith API Key
 
 The API key is required for the cloudsmith-cli to work.  
-Add a secret in the settings of your repository named `CLOUDSMITH_API_KEY`.
+
+Obtain the API Key from [Cloudsmith user settings](https://cloudsmith.io/user/settings/api/). You should use a less priveleged and generic account for Continuous Integration. 
+
+Add a secret named `CLOUDSMITH_API_KEY` and a value of the API Key obtained from cloudsmith.  Secrets are maintained in the settings of each repository. 
+
+Pass your secret to the Action as seen in the Example usage.
+
+
 
 ## Example usage
+
+[
+![Package Workflow Status](https://github.com/AutoModality/action-cloudsmith/workflows/Cloudsmith%20Push/badge.svg)](https://github.com/AutoModality/action-cloudsmith/actions?query=workflow%3A%22Cloudsmith+Push%22)
+
+
 
 ```
 name: Cloudsmith Push
@@ -32,6 +45,7 @@ jobs:
       id: push
       uses: AutoModality/action-cloudsmith@0.1.0
       with:
+        api-key: ${{ secrets.CLOUDSMITH_API_KEY }}
         command: 'push'
         format: 'deb'
         owner: 'automodality'

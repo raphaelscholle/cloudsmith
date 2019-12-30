@@ -3,7 +3,7 @@ on: push
 jobs:
   push:
     runs-on: ubuntu-latest
-    name: Push demo
+    name: Debian Push Demo
     steps:
     - name: Push
       id: push

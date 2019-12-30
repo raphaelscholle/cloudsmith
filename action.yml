@@ -5,6 +5,7 @@ inputs:
   api-key:  
     description: 'The Cloudsmith API Key in the Github Secrets repository settings.'
     required: true
+    default: none
   command:  
     description: 'The desired action with cloudsmith (push, list, etc)'
     required: true
@@ -12,22 +13,39 @@ inputs:
   format:  
     description: 'The package format (deb,npm,maven, etc)'
     required: true
+    default: none
   owner:  
     description: 'The organization that owns the repository'
     required: true
+    default: none
   repo:  
     description: 'The repository slug'
     required: true
+    default: none
   file:  
     description: 'The package file to be pushed'
     required: true
+    default: none
   distro:  
     description: 'Debian: The distribution (ubuntu)'
     required: false
+    default: none
   release:  
     description: 'Debian: The named version of the release (xenial)'
     required: false
-
+    default: none
+  name:
+    description: '--name TEXT: The name of this package.'
+    required: false
+    default: none
+  summary:
+    description: '--summary TEXT: A one-liner synopsis of this package.'
+    required: false
+    default: none
+  description:
+    description: '--description TEXT: A textual description of this package.'
+    required: false
+    default: none
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -40,3 +58,8 @@ runs:
     - ${{ inputs.file }}
     - ${{ inputs.distro }}
     - ${{ inputs.release }}
+    - ${{ inputs.version }}
+    - ${{ inputs.name }}
+    - ${{ inputs.summary }}
+    - ${{ inputs.description }}
+  
