@@ -1,12 +1,7 @@
 name: Cloudsmith Push
-on: 
-  push:
-    branches:
-      - master
-    tags:
-      - '*'
+on: push
 jobs:
-  push-file:
+  push:
     runs-on: ubuntu-latest
     name: Push demo
     steps:
