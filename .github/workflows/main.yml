@@ -6,7 +6,7 @@ on:
     tags:
       - '*'
 jobs:
-  push_raw:
+  push-file:
     runs-on: ubuntu-latest
     name: Push demo
     steps:
