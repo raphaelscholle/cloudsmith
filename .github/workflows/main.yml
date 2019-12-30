@@ -7,7 +7,7 @@ jobs:
     steps:
     - name: Push
       id: push
-      uses: AutoModality/action-cloudsmith@master
+      uses: AutoModality/action-cloudsmith@BB-762
       with:
         command: 'push'
         format: 'deb'
