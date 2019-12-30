@@ -1,13 +1,14 @@
-name: Cloudsmith Push
+name: Push Debian
 on: push
 jobs:
   push:
     runs-on: ubuntu-latest
-    name: Push demo
+    name: Debian Push Demo
     steps:
+    - uses: actions/checkout@v1
     - name: Push
       id: push
-      uses: AutoModality/action-cloudsmith@0.1.0
+      uses: AutoModality/action-cloudsmith@0.2.0
       with:
         api-key: ${{ secrets.CLOUDSMITH_API_KEY }}
         command: 'push'
@@ -16,5 +17,6 @@ jobs:
         repo: 'trial'
         distro: 'ubuntu'
         release: 'xenial'
-        file: '/bin/bash' #real file, but wrong format
+        republish: 'true' # needed since version is not changing
+        file: 'test/fixture/aruco_3.1.0-1_amd64.deb' #real file that will repeat versions
 
