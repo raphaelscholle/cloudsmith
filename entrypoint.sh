@@ -1,4 +1,6 @@
-#!/bin/sh -l
+#!/bin/sh
+
+set -e #exit on error
 
 command=$1
 format=$2
