@@ -2,13 +2,14 @@
 
 set -e #exit on error
 
-command=$1
-format=$2
-org=$3
-repo=$4
-file=$5
-distro=$6
-release=$7
+api_key=$1
+command=$2
+format=$3
+org=$4
+repo=$5
+file=$6
+distro=$7
+release=$8
 
 
 # requires a CLOUDSMITH_API_KEY env variable to push

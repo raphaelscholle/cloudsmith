@@ -2,6 +2,9 @@
 name: 'Cloudsmith'
 description: 'Interact with Cloudsmith repositories'
 inputs:
+  api-key:  
+    description: 'The Cloudsmith API Key in the Github Secrets repository settings.'
+    required: true
   command:  
     description: 'The desired action with cloudsmith (push, list, etc)'
     required: true
@@ -29,6 +32,7 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args: # these map in order with entrypoint.sh
+    - ${{ inputs.api-key }}
     - ${{ inputs.command }}
     - ${{ inputs.format }}
     - ${{ inputs.owner }}

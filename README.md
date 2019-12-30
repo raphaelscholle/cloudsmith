@@ -13,6 +13,10 @@ to its structure and terminology as possible.
 **Not Implemented**
 * Everything else
 
+## Cloudsmith API Key
+
+The API key is required for the cloudsmith-cli to work.  
+Add a secret in the settings of your repository named `CLOUDSMITH_API_KEY`.
 
 ## Example usage
 
