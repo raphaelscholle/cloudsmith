@@ -2,24 +2,41 @@
 Interact with Cloudsmith repositories using the cloudmsith cli
 to push packages, etc.
 
-## Inputs
+## Cloudsmith CLI 
+This action uses the Cloudsmith CLI and intends to be as similar
+to its structure and terminology as possible.  
 
-### `who-to-greet`
+**Implemented**
+* Push
+  * Debian format
 
-**Required** The name of the person to greet. Default `"World"`.
+**Not Implemented**
+* Everything else
 
-## Outputs
+## Cloudsmith API Key
 
-### `time`
-
-The time we greeted you.
-
-### `os`
-
-The operating system that ran the action.
+The API key is required for the cloudsmith-cli to work.  
+Add a secret in the settings of your repository named `CLOUDSMITH_API_KEY`.
 
 ## Example usage
 
-uses: actions/hello-world-docker-action@v1
-with:
-  who-to-greet: 'Mona the Octocat'
+```
+name: Cloudsmith Push
+on: push
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    name: Push demo
+    steps:
+    - name: Push
+      id: push
+      uses: AutoModality/action-cloudsmith@BB-762
+      with:
+        command: 'push'
+        format: 'deb'
+        owner: 'automodality'
+        repo: 'trial'
+        distro: 'ubuntu'
+        release: 'xenial'
+        file: 'cool-lib_1.0.1_amd64.deb'
+```

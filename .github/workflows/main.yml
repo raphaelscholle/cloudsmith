@@ -1,24 +1,20 @@
 name: Cloudsmith Push
-on: 
-  push:
-    branches:
-      - master
-    tags:
-      - '*'
+on: push
 jobs:
-  push-file:
+  push:
     runs-on: ubuntu-latest
     name: Push demo
     steps:
     - name: Push
       id: push
-      uses: AutoModality/action-cloudsmith@master
+      uses: AutoModality/action-cloudsmith@BB-762
       with:
+        api-key: ${{ secrets.CLOUDSMITH_API_KEY }}
         command: 'push'
         format: 'deb'
         owner: 'automodality'
         repo: 'trial'
         distro: 'ubuntu'
         release: 'xenial'
-        file: 'action.yml'
+        file: '/bin/bash' #real file, but wrong format
 

@@ -1,18 +1,36 @@
-#!/bin/sh
+#!/bin/bash
 
 set -e #exit on error
 
-command=$1
-format=$2
-org=$3
-repo=$4
-file=$5
-distro=$6
-release=$7
+api_key=$1
+command=$2
+format=$3
+org=$4
+repo=$5
+file=$6
+distro=$7
+release=$8
 
-apt-get -y update
-apt-get -y install python-pip
-pip install --upgrade pip
-pip install cloudsmith-cli
+
 # requires a CLOUDSMITH_API_KEY env variable to push
-cloudsmith push $action $format $org/$repo/distro/release some-file.deb
+if [[ -z $api_key ]]; then
+    echo "CLOUDSMITH_API_KEY is required"
+    exit 1
+fi
+
+export CLOUDSMITH_API_KEY=$api_key
+
+if [[ "$command" != "push" ]]; then
+    echo "command $comand not yet implemented."
+    exit 3
+fi
+
+pip install cloudsmith-cli
+
+
+if [[ "$format" == "deb" ]]; then
+   cloudsmith push $action $format $org/$repo/$distro/$release $file
+else
+    echo "format $format not yet implemented."
+    exit 2
+fi
