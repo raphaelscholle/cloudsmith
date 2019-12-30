@@ -12,7 +12,6 @@ release=$7
 
 apt-get -y update
 apt-get -y install python-pip
-pip install --upgrade pip
 pip install cloudsmith-cli
 # requires a CLOUDSMITH_API_KEY env variable to push
 cloudsmith push $action $format $org/$repo/distro/release some-file.deb
