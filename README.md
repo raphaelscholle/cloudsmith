@@ -82,7 +82,7 @@ jobs:
     - uses: actions/checkout@v1
     - name: Push
       id: push
-      uses: AutoModality/action-cloudsmith@BB-763
+      uses: AutoModality/action-cloudsmith@0.2.0
       with:
         api-key: ${{ secrets.CLOUDSMITH_API_KEY }}
         command: 'push'
