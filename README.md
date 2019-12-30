@@ -25,8 +25,9 @@ Add a secret named `CLOUDSMITH_API_KEY` and a value of the API Key obtained from
 Pass your secret to the Action as seen in the Example usage.
 
 
+# Examples
 
-## Example of Raw File Push
+## Raw File Push
 
 [
 ![Package Workflow Status](https://github.com/AutoModality/action-cloudsmith/workflows/Push%20Raw/badge.svg)](https://github.com/AutoModality/action-cloudsmith/actions?query=workflow%3A%22Push+Raw%22)
@@ -58,5 +59,39 @@ jobs:
         summary: 'Github Action test of raw pushes'
         description: 'See https://github.com/AutoModality/action-cloudsmith/actions'
         version: ${{ github.sha}}
+
+```
+
+## Debian Package Push
+
+[
+![Package Workflow Status](https://github.com/AutoModality/action-cloudsmith/workflows/Push%20Debian/badge.svg)](https://github.com/AutoModality/action-cloudsmith/actions?query=workflow%3A%22Push+Debian%22)
+
+
+[![Latest Version @ Cloudsmith](https://api-prd.cloudsmith.io/badges/version/automodality/trial/deb/aruco/latest/d=ubuntu%252Fxenial;t=1/?render=true&badge_token=gAAAAABeCm2C111HnG6P0q-4-hrU04M1vFbkeIiChmj6Rb7_pVR_dT_e3726dStLG8QjBMQM2U09KKEv96pemcC61lgbqW6TTW8leqmLUjx3CT5_pPNaA0I%3D)](https://cloudsmith.io/~automodality/repos/trial/packages/detail/deb/aruco/latest/d=ubuntu%252Fxenial;t=1/)
+
+See [push-debian.yml](.github/workflows/push-debian.yml)
+```
+name: Push Debian
+on: push
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    name: Debian Push Demo
+    steps:
+    - uses: actions/checkout@v1
+    - name: Push
+      id: push
+      uses: AutoModality/action-cloudsmith@BB-763
+      with:
+        api-key: ${{ secrets.CLOUDSMITH_API_KEY }}
+        command: 'push'
+        format: 'deb'
+        owner: 'automodality'
+        repo: 'trial'
+        distro: 'ubuntu'
+        release: 'xenial'
+        republish: 'true'
+        file: 'test/fixture/aruco_3.1.0-1_amd64.deb' #real file, but will fail due to repeat versions
 
 ```
