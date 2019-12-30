@@ -13,10 +13,12 @@ release=$8
 
 
 # requires a CLOUDSMITH_API_KEY env variable to push
-if [[ -z $CLOUDSMITH_API_KEY ]]; then
+if [[ -z $api_key ]]; then
     echo "CLOUDSMITH_API_KEY is required"
     exit 1
 fi
+
+export CLOUDSMITH_API_KEY=$api_key
 
 if [[ "$command" != "push" ]]; then
     echo "command $comand not yet implemented."
