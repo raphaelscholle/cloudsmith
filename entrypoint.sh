@@ -10,6 +10,7 @@ file=$5
 distro=$6
 release=$7
 
+apt-get -y update
 apt-get -y install python-pip
 pip install cloudsmith-cli
 # requires a CLOUDSMITH_API_KEY env variable to push
