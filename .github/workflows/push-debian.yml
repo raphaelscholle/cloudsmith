@@ -5,6 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Debian Push Demo
     steps:
+    - uses: actions/checkout@v1
     - name: Push
       id: push
       uses: AutoModality/action-cloudsmith@0.1.0
