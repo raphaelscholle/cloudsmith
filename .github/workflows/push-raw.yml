@@ -15,7 +15,7 @@ jobs:
         format: 'raw'
         owner: 'automodality'
         repo: 'trial'
-        file: '${{ github.workspace }}/test/fixture/raw-file.txt' 
+        file: 'test/fixture/raw-file.txt' 
         name: 'Raw Test'
         summary: 'Github Action test of raw pushes'
         description: 'See https://github.com/AutoModality/action-cloudsmith/actions'
