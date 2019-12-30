@@ -14,10 +14,10 @@ jobs:
         format: 'raw'
         owner: 'automodality'
         repo: 'trial'
-        file: 'test/fixture/raw-file.txt' 
+        file: '${{ home }}/test/fixture/raw-file.txt' 
         name: 'Raw Test'
         summary: 'Github Action test of raw pushes'
         description: 'See https://github.com/AutoModality/action-cloudsmith/actions'
         version: ${{ github.sha}}
-        
+
 
