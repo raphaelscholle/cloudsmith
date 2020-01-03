@@ -53,7 +53,7 @@ fi
 
 
 case "$format" in 
-  "deb"|"raw")
+  "deb"|"raw"|"docker")
     
     if [[ -n "$distro" && "$distro" != $DEFAULT ]]; then
         distro_path="/$distro"
