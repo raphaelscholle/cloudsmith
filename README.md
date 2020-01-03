@@ -10,6 +10,7 @@ to its structure and terminology as possible.
 * Push
   * [Debian format](https://cloudsmith.io/l/deb-repository/)
   * [Raw format](https://cloudsmith.io/f/raw_file_repositories/)
+  * [Docker format](https://cloudsmith.io/l/docker-registry/)
 
 **Not Implemented**
 * Everything else
@@ -93,5 +94,36 @@ jobs:
         release: 'xenial'
         republish: 'true'
         file: 'test/fixture/aruco_3.1.0-1_amd64.deb' #real file, but will fail due to repeat versions
+
+```
+## Docker Image Push
+
+[
+![Package Workflow Status](https://github.com/AutoModality/action-cloudsmith/workflows/Push%20Docker/badge.svg)](https://github.com/AutoModality/action-cloudsmith/actions?query=workflow%3A%22Push+Docker%22)
+
+
+No Cloudsmith Repository Badge?
+
+See [push-debian.yml](.github/workflows/push-docker.yml)
+```
+name: Push Docker
+on: push
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    name: Docker Push Demo
+    steps:
+    - uses: actions/checkout@v1
+    - name: Push
+      id: push
+      uses: AutoModality/action-cloudsmith@0.3.0
+      with:
+        api-key: ${{ secrets.CLOUDSMITH_API_KEY }}
+        command: 'push'
+        format: 'docker'
+        owner: 'automodality'
+        repo: 'trial'
+        republish: 'true' # needed since version is not changing
+        file: 'test/fixture/alpine-docker-test.tar.gz' #alpine image saved to file
 
 ```
