@@ -104,7 +104,7 @@ jobs:
 
 No Cloudsmith Repository Badge?
 
-See [push-debian.yml](.github/workflows/push-docker.yml)
+See [push-docker.yml](.github/workflows/push-docker.yml)
 ```
 name: Push Docker
 on: push
