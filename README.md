@@ -104,6 +104,8 @@ jobs:
 
 No Cloudsmith Repository Badge?
 
+**Note**: In most cases, it is better to use the native `docker cli` to push images to the Cloudsmith Repository.  Search the Marketplace for many supporting implementations.
+
 See [push-docker.yml](.github/workflows/push-docker.yml)
 ```
 name: Push Docker
