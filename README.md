@@ -1,3 +1,5 @@
+**This is a fork from https://github.com/AutoModality/action-cloudsmith/ - we're in the middle of repurposing it.**
+
 # Cloudsmith Github Action
 Interact with Cloudsmith repositories using the cloudmsith cli
 to push packages, etc.
@@ -30,13 +32,6 @@ Pass your secret to the Action as seen in the Example usage.
 
 ## Raw File Push
 
-[
-![Package Workflow Status](https://github.com/AutoModality/action-cloudsmith/workflows/Push%20Raw/badge.svg)](https://github.com/AutoModality/action-cloudsmith/actions?query=workflow%3A%22Push+Raw%22)
-
-
-[![Latest Version @ Cloudsmith](https://api-prd.cloudsmith.io/badges/version/automodality/trial/raw/Raw%20Test/latest/x/?render=true&badge_token=gAAAAABeClEKOQZCVujPlMzTyVCuImA8NXf-MnlI5GvpESmdpZBDK59OsgPrQlkyYqpbM60QvPeFLOVyJNuG7KW2AS756ghSurzX_5bSA3p28fbDVb31k6I%3D)](https://cloudsmith.io/~automodality/repos/trial/packages/detail/raw/Raw%2520Test/latest/)
-
-See [push-raw.yml](.github/workflows/push-raw.yml)
 ```
 name: Push Raw
 on: push
@@ -48,7 +43,7 @@ jobs:
     - uses: actions/checkout@v1
     - name: Push
       id: push
-      uses: AutoModality/action-cloudsmith@0.2.0
+      uses: cloudsmith-io/action@0.3.0
       with:
         api-key: ${{ secrets.CLOUDSMITH_API_KEY }}
         command: 'push'
@@ -65,13 +60,6 @@ jobs:
 
 ## Debian Package Push
 
-[
-![Package Workflow Status](https://github.com/AutoModality/action-cloudsmith/workflows/Push%20Debian/badge.svg)](https://github.com/AutoModality/action-cloudsmith/actions?query=workflow%3A%22Push+Debian%22)
-
-
-[![Latest Version @ Cloudsmith](https://api-prd.cloudsmith.io/badges/version/automodality/trial/deb/aruco/latest/d=ubuntu%252Fxenial;t=1/?render=true&badge_token=gAAAAABeCm2C111HnG6P0q-4-hrU04M1vFbkeIiChmj6Rb7_pVR_dT_e3726dStLG8QjBMQM2U09KKEv96pemcC61lgbqW6TTW8leqmLUjx3CT5_pPNaA0I%3D)](https://cloudsmith.io/~automodality/repos/trial/packages/detail/deb/aruco/latest/d=ubuntu%252Fxenial;t=1/)
-
-See [push-debian.yml](.github/workflows/push-debian.yml)
 ```
 name: Push Debian
 on: push
@@ -83,7 +71,7 @@ jobs:
     - uses: actions/checkout@v1
     - name: Push
       id: push
-      uses: AutoModality/action-cloudsmith@0.2.0
+      uses: cloudsmith-io/action@0.3.0
       with:
         api-key: ${{ secrets.CLOUDSMITH_API_KEY }}
         command: 'push'
@@ -97,12 +85,6 @@ jobs:
 
 ```
 ## Docker Image Push
-
-[
-![Package Workflow Status](https://github.com/AutoModality/action-cloudsmith/workflows/Push%20Docker/badge.svg)](https://github.com/AutoModality/action-cloudsmith/actions?query=workflow%3A%22Push+Docker%22)
-
-
-No Cloudsmith Repository Badge?
 
 **Note**: In most cases, it is better to use the native `docker cli` to push images to the Cloudsmith Repository.  Search the Marketplace for many supporting implementations.
 
@@ -118,7 +100,7 @@ jobs:
     - uses: actions/checkout@v1
     - name: Push
       id: push
-      uses: AutoModality/action-cloudsmith@0.3.0
+      uses: cloudsmith-io/action@0.3.0
       with:
         api-key: ${{ secrets.CLOUDSMITH_API_KEY }}
         command: 'push'
