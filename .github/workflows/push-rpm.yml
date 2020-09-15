@@ -18,4 +18,4 @@ jobs:
           distro: "any-distro"
           release: "any-version"
           republish: "true" # needed since version is not changing
-          file: "test/fixtures/cloudsmith-rpm-example-1.0-1.x86_64.rpm" #real file that will repeat versions
+          file: "test/fixture/cloudsmith-rpm-example-1.0-1.x86_64.rpm" #real file that will repeat versions
