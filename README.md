@@ -17,6 +17,7 @@ to its structure and terminology as possible.
   - [Debian format](https://cloudsmith.com/debian-repository/)
   - [Docker format](https://cloudsmith.com/docker-registry/)
   - [Python format](https://cloudsmith.com/python-repository/)
+  - [RPM format](https://cloudsmith.com/rpm-repository/)
   - [Raw format](https://cloudsmith.com/raw-repository/)
 
 **Not Implemented**
@@ -164,6 +165,32 @@ jobs:
           repo: "actions"
           republish: "true"
           file: "test/fixture/cloudsmith-python-example-1.0.0.tar.gz"
+```
+
+### RPM Package RPM
+
+```yaml
+name: Push RPM
+on: push
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    name: RPM Push Demo
+    steps:
+      - uses: actions/checkout@v1
+      - name: Push
+        id: push
+        uses: cloudsmith-io/action@master
+        with:
+          api-key: ${{ secrets.CLOUDSMITH_API_KEY }}
+          command: "push"
+          format: "rpm"
+          owner: "cloudsmith"
+          repo: "actions"
+          distro: "any-distro"
+          version: "any-version"
+          republish: "true" # needed since version is not changing
+          file: "test/fixture/cloudsmith-rpm-example-1.0-1.x86_64.rpm" #real file that will repeat versions
 ```
 
 ### Raw File Push
