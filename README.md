@@ -1,5 +1,3 @@
-**This is a fork from https://github.com/AutoModality/action-cloudsmith/ - we're in the middle of repurposing it.**
-
 # Cloudsmith Push Action
 
 Push packages easily to your [Cloudsmith](https://cloudsmith.com) repositories, using the [Cloudsmith CLI](https://pypi.org/project/cloudsmith-cli/).
