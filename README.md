@@ -222,6 +222,10 @@ jobs:
           version: ${{ github.sha}}
 ```
 
+## Thanks
+
+A huge thank you to @aroller (Aaron) at @AutoModality for creating the original GitHub action for Cloudsmith.
+
 ## Contributing
 
 Yes! Please do contribute, this is why we love open source. Please see `CONTRIBUTING.md` for contribution guidelines when making code changes or raising issues for bug reports, ideas, discussions and/or questions (i.e. help required).
