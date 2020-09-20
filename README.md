@@ -1,15 +1,15 @@
 **This is a fork from https://github.com/AutoModality/action-cloudsmith/ - we're in the middle of repurposing it.**
 
-# Cloudsmith Github Action
+# Cloudsmith Push Action
 
-Interact with Cloudsmith repositories using the [cloudmsith cli](https://pypi.org/project/cloudsmith-cli/) to push packages, etc.
+Push packages easily to your [Cloudsmith](https://cloudsmith.com) repositories, using the [Cloudsmith CLI](https://pypi.org/project/cloudsmith-cli/).
 
 ## Cloudsmith CLI
 
 This action uses the Cloudsmith CLI and intends to be as similar
 to its structure and terminology as possible.
 
-**Supported**
+**Supported:**
 
 - Push:
   - [Alpine format](https://cloudsmith.com/alpine-repository/)
@@ -20,7 +20,7 @@ to its structure and terminology as possible.
   - [RedHat/RPM format](https://cloudsmith.com/rpm-repository/)
   - [Raw format](https://cloudsmith.com/raw-repository/)
 
-**Not Supported, But May Work**
+**Not Supported, But May Work:**
 
 - Push:
   - Other package formats may work but official support has not yet been added to the Action.
