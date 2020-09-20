@@ -1,6 +1,6 @@
 # action.yml
 name: "Cloudsmith Push"
-description: "Push packages easily to your Cloudsmith repositories"
+description: "Push packages easily to your repositories"
 author: "Cloudsmith Ltd"
 branding:
   icon: "box"
