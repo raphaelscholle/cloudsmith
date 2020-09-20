@@ -1,6 +1,10 @@
 # action.yml
-name: "Cloudsmith"
-description: "Interact with Cloudsmith repositories"
+name: "Cloudsmith Push"
+description: "Push packages easily to your Cloudsmith repositories"
+author: "Cloudsmith Ltd"
+branding:
+  icon: "box"
+  color: "blue"
 inputs:
   api-version:
     description: "All: If provided, a specific version of the Cloudsmith API is installed/used."
