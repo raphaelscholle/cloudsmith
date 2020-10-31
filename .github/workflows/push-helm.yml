@@ -1,4 +1,4 @@
-name: Push Docker
+name: Push Helm
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 jobs:
   push:
     runs-on: ubuntu-latest
-    name: Docker Push Demo
+    name: Helm Push Demo
     steps:
       - name: Check out code
         uses: actions/checkout@v2
@@ -19,8 +19,8 @@ jobs:
         with:
           api-key: ${{ secrets.CLOUDSMITH_API_KEY }}
           command: "push"
-          format: "docker"
+          format: "helm"
           owner: "cloudsmith"
           repo: "actions"
           republish: "true" # needed ONLY if version is not changing
-          file: "test/fixture/cloudsmith-docker-example-1.0.0.tar.gz" #alpine image saved to file
+          file: "test/fixture/cloudsmith-helm-example-1.0.0.tar.gz" #real file that will repeat versions
