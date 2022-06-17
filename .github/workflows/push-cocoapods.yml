@@ -1,0 +1,26 @@
+name: Push Cocoapods
+
+ on:
+   push:
+     branches:
+       - master
+
+ jobs:
+   push:
+     runs-on: ubuntu-latest
+     name: Cocoapods Push Demo
+     steps:
+       - name: Check out code
+         uses: actions/checkout@v2
+
+       - name: Push
+         id: push
+         uses: ./
+         with:
+           api-key: ${{ secrets.CLOUDSMITH_API_KEY }}
+           command: "push"
+           format: "cocoapods"
+           owner: "cloudsmith"
+           repo: "actions"
+           republish: "true" # needed ONLY if version is not changing
+           file: "test/fixture/cloudsmith-cocoapods-example-1.0.0.zip"

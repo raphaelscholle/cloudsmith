@@ -12,6 +12,7 @@ to its structure and terminology as possible.
 - Push:
   - [Alpine format](https://cloudsmith.com/alpine-repository/)
   - [Cargo format](https://cloudsmith.com/cargo-registry/)
+  - [CocoaPods format](https://cloudsmith.com/cocoapods-repository/)
   - [Composer format](https://cloudsmith.com/composer-repository/)
   - [Dart format](https://cloudsmith.com/dart-repository/)
   - [Debian format](https://cloudsmith.com/debian-repository/)
