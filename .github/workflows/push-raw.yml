@@ -1,7 +1,6 @@
 name: Push Raw
 
 on:
-  pull_request:
   push:
     branches:
       - master
@@ -32,4 +31,3 @@ jobs:
           description: "See https://github.com/cloudsmith-io/action"
           version: ${{ github.sha }}
           extra: "--sync-attempts 5"  # Testing extras
-          tags: version:latest,foo
