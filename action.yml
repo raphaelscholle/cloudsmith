@@ -109,9 +109,8 @@ runs:
       shell: bash
       run: |
         echo $PWD
-        ls ${{ github.action_path }}
-        chmod +x ${{ github.action_path }}/entrypoint.sh
-        bash ${{ github.action_path }}/entrypoint.sh \
+        ls -a
+        bash $PWD/entrypoint.sh \
         -D${{ inputs.description }} \
         -k${{ inputs.api-key }} \
         -K${{ inputs.command }} \
