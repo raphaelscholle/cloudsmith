@@ -103,9 +103,8 @@ runs:
       if: inputs.skip-install-cli == 'false'
       shell: bash
       run: |
-        pip install \
-        cloudsmith-api${{ inputs.api-version != 'none' && format('=={0}', inputs.api-version) || ''}} --break-system-packages\
-        cloudsmith-cli${{ inputs.cli-version != 'none' && format('=={0}', inputs.cli-version) || ''}} --break-system-packages\
+        pip install cloudsmith-api --break-system-packages
+        pip install cloudsmith-cli --break-system-packages
     - name: Run Entrypoint
       shell: bash
       run: |
