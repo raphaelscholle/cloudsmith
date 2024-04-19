@@ -108,6 +108,8 @@ runs:
     - name: Run Entrypoint
       shell: bash
       run: |
+        ls ${{ github.action_path }}
+        chmod +x ${{ github.action_path }}/entrypoint.sh
         bash ${{ github.action_path }}/entrypoint.sh \
         -D${{ inputs.description }} \
         -k${{ inputs.api-key }} \
